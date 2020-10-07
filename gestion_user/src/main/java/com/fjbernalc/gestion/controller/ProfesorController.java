@@ -2,8 +2,6 @@ package com.fjbernalc.gestion.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,12 +26,12 @@ public class ProfesorController {
 	ProfesorService service;
 	
 	@PutMapping("/profesor")
-	public boolean agregarProfesor(@RequestBody @Valid Profesor profesor) {
+	public boolean agregarProfesor(@RequestBody Profesor profesor) {
 		return service.crear(profesor);
 	}
 	
 	@PostMapping("/profesor")
-	public boolean actualizarProfesor(@RequestBody @Valid Profesor profesor) {
+	public boolean actualizarProfesor(@RequestBody Profesor profesor) {
 		return service.actualizar(profesor);
 	}
 	
