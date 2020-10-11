@@ -1,6 +1,5 @@
 package com.fjbernalc.gestion.model;
 
-import com.fjbernalc.gestion.entity.Curso;
 import com.fjbernalc.gestion.entity.Estudiante;
 
 public class MEstudiante {
@@ -14,7 +13,6 @@ public class MEstudiante {
 	private String apellidoTutor;
 	private long telefonoTutor;
 	private String emailTutor;
-	private Curso curso;
 	
 	public MEstudiante() {
 		// TODO Auto-generated constructor stub
@@ -31,12 +29,11 @@ public class MEstudiante {
 		this.apellidoTutor = estudiante.getApellidoTutor();
 		this.telefonoTutor = estudiante.getTelefonoTutor();
 		this.emailTutor = estudiante.getEmailTutor();
-		this.curso = estudiante.getCurso();
 		
 	}
 
 	public MEstudiante(int id, String nombre, String apellido, int edad, String sexo, String nombreTutor,
-			String apellidoTutor, long telefonoTutor, String emailTutor, Curso curso) {
+			String apellidoTutor, long telefonoTutor, String emailTutor) {
 		
 		this.id = id;
 		this.nombre = nombre;
@@ -47,7 +44,6 @@ public class MEstudiante {
 		this.apellidoTutor = apellidoTutor;
 		this.telefonoTutor = telefonoTutor;
 		this.emailTutor = emailTutor;
-		this.curso = curso;
 	}
 
 	public int getId() {
@@ -122,21 +118,12 @@ public class MEstudiante {
 		this.emailTutor = emailTutor;
 	}
 
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((apellido == null) ? 0 : apellido.hashCode());
 		result = prime * result + ((apellidoTutor == null) ? 0 : apellidoTutor.hashCode());
-		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + edad;
 		result = prime * result + ((emailTutor == null) ? 0 : emailTutor.hashCode());
 		result = prime * result + id;
@@ -165,11 +152,6 @@ public class MEstudiante {
 			if (other.apellidoTutor != null)
 				return false;
 		} else if (!apellidoTutor.equals(other.apellidoTutor))
-			return false;
-		if (curso == null) {
-			if (other.curso != null)
-				return false;
-		} else if (!curso.equals(other.curso))
 			return false;
 		if (edad != other.edad)
 			return false;
@@ -204,7 +186,7 @@ public class MEstudiante {
 	public String toString() {
 		return "MEstudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", sexo="
 				+ sexo + ", nombreTutor=" + nombreTutor + ", apellidoTutor=" + apellidoTutor + ", telefonoTutor="
-				+ telefonoTutor + ", emailTutor=" + emailTutor + ", curso=" + curso + "]";
+				+ telefonoTutor + ", emailTutor=" + emailTutor + "]";
 	}
 	
 }

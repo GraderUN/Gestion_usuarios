@@ -14,6 +14,6 @@ public interface EstudianteRepo extends CrudRepository<Estudiante, Serializable>
 	
 	public abstract Estudiante findById(int id);	
 	
-	public abstract Estudiante findByIdAndNombre(int id, String nombre);
+	public abstract Estudiante findByNombreAndApellido(String nombre, String apellido);
 
 }

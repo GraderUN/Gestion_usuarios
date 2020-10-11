@@ -59,11 +59,11 @@ public class AdministrativoService {
 		
 	}
 	
-	public boolean borrar(int id, String nombre) {
+	public boolean borrar(int id) {
 		
 		try {
 			
-			Administrativo administrativo = repositorio.findByIdAndNombre(id, nombre);
+			Administrativo administrativo = repositorio.findById(id);
 			repositorio.delete(administrativo);
 			return true;
 			
@@ -77,8 +77,12 @@ public class AdministrativoService {
 		return convertidor.convertirListaAdminstrativos((List<Administrativo>) repositorio.findAll());
 	}
 	
-	public MAdministrativo obtenerPorIdNombre(int id, String nombre){
-		return new MAdministrativo(repositorio.findByIdAndNombre(id, nombre));
+	public MAdministrativo obtenerPorId(int id){
+		return new MAdministrativo(repositorio.findById(id));
+	}
+	
+	public MAdministrativo obtenerPorNombreApellido(String nombre, String apellido){
+		return new MAdministrativo(repositorio.findByNombreAndApellido(nombre, apellido));
 	}
 
 }

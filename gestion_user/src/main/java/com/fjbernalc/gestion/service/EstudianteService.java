@@ -63,11 +63,11 @@ public class EstudianteService {
 		
 	}
 	
-	public boolean borrar(int id, String nombre) {
+	public boolean borrar(int id) {
 		
 		try {
 			
-			Estudiante estudiante = repositorio.findByIdAndNombre(id, nombre);
+			Estudiante estudiante = repositorio.findById(id);
 			repositorio.delete(estudiante);
 			return true;
 			
@@ -81,8 +81,12 @@ public class EstudianteService {
 		return convertidor.convertirListaEstudiantes((List<Estudiante>) repositorio.findAll());
 	}
 	
-	public MEstudiante obtenerPorIdNombre(int id, String nombre){
-		return new MEstudiante(repositorio.findByIdAndNombre(id, nombre));
+	public MEstudiante obtenerPorId(int id){
+		return new MEstudiante(repositorio.findById(id));
+	}
+	
+	public MEstudiante obtenerPorNombreApellido(String nombre, String apellido){
+		return new MEstudiante(repositorio.findByNombreAndApellido(nombre, apellido));
 	}
 
 }

@@ -14,6 +14,6 @@ public interface ProfesorRepo extends CrudRepository<Profesor, Serializable>{
 	
 	public abstract Profesor findById(int id);	
 	
-	public abstract Profesor findByIdAndNombre(int id, String nombre);
+	public abstract Profesor findByNombreAndApellido(String nombre, String apellido);
 
 }

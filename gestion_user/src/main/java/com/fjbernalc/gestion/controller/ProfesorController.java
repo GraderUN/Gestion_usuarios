@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,9 +34,9 @@ public class ProfesorController {
 		return service.actualizar(profesor);
 	}
 	
-	@DeleteMapping("/profesor/{id}/{nombre}")
-	public boolean borrarProfesor(@PathVariable("id") int id, @PathVariable("nombre") String nombre) {
-		return service.borrar(id, nombre);
+	@DeleteMapping("/profesor")
+	public boolean borrarProfesor(@RequestBody Profesor profesor) {
+		return service.borrar(profesor);
 	}
 	
 	@GetMapping("/profesores")
@@ -45,9 +44,14 @@ public class ProfesorController {
 		return service.obtener();
 	}
 
-	@GetMapping("/profesor{id}/{nombre}")
-	public MProfesor obtenerProfesor(@PathVariable("id") int id, @PathVariable("nombre") String nombre){
-		return service.obtenerPorIdNombre(id, nombre);
+	@GetMapping("/profesor")
+	public MProfesor obtenerProfesor(@RequestBody Profesor profesor){
+		return service.obtenerPorId(profesor.getId());
+	}
+	
+	@GetMapping("/profesorN")
+	public MProfesor obtenerProfesorN(@RequestBody Profesor profesor){
+		return service.obtenerPorNombreApellido(profesor.getNombre(), profesor.getApellido());
 	}
 
 }

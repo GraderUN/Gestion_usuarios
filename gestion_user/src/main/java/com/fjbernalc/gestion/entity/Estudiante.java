@@ -2,14 +2,10 @@ package com.fjbernalc.gestion.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -40,16 +36,13 @@ public class Estudiante implements Serializable{
 	private long telefonoTutor;
 	@Column(name="emailTuto")
 	private String emailTutor;
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "id_curso")
-	private Curso curso;
 	
 	public Estudiante() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Estudiante(int id, String nombre, String apellido, int edad, String sexo, String nombreTutor,
-			String apellidoTutor, long telefonoTutor, String emailTutor, Curso curso) {
+			String apellidoTutor, long telefonoTutor, String emailTutor) {
 		
 		this.id = id;
 		this.nombre = nombre;
@@ -60,7 +53,6 @@ public class Estudiante implements Serializable{
 		this.apellidoTutor = apellidoTutor;
 		this.telefonoTutor = telefonoTutor;
 		this.emailTutor = emailTutor;
-		this.curso = curso;
 	}
 
 	public int getId() {
@@ -135,21 +127,12 @@ public class Estudiante implements Serializable{
 		this.emailTutor = emailTutor;
 	}
 
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((apellido == null) ? 0 : apellido.hashCode());
 		result = prime * result + ((apellidoTutor == null) ? 0 : apellidoTutor.hashCode());
-		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + edad;
 		result = prime * result + ((emailTutor == null) ? 0 : emailTutor.hashCode());
 		result = prime * result + id;
@@ -178,11 +161,6 @@ public class Estudiante implements Serializable{
 			if (other.apellidoTutor != null)
 				return false;
 		} else if (!apellidoTutor.equals(other.apellidoTutor))
-			return false;
-		if (curso == null) {
-			if (other.curso != null)
-				return false;
-		} else if (!curso.equals(other.curso))
 			return false;
 		if (edad != other.edad)
 			return false;
@@ -217,7 +195,7 @@ public class Estudiante implements Serializable{
 	public String toString() {
 		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", sexo="
 				+ sexo + ", nombreTutor=" + nombreTutor + ", apellidoTutor=" + apellidoTutor + ", telefonoTutor="
-				+ telefonoTutor + ", emailTutor=" + emailTutor + ", curso=" + curso + "]";
+				+ telefonoTutor + ", emailTutor=" + emailTutor + "]";
 	}
 
 }

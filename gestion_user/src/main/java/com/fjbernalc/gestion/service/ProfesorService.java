@@ -60,12 +60,12 @@ public class ProfesorService {
 		
 	}
 	
-	public boolean borrar(int id, String nombre) {
+	public boolean borrar(Profesor profesor) {
 		
 		try {
 			
-			Profesor profesor = repositorio.findByIdAndNombre(id, nombre);
-			repositorio.delete(profesor);
+			Profesor profesor1 = repositorio.findById(profesor.getId());
+			repositorio.delete(profesor1);
 			return true;
 			
 		}catch(Exception e) {
@@ -78,8 +78,12 @@ public class ProfesorService {
 		return convertidor.convertirListaProfesores((List<Profesor>) repositorio.findAll());
 	}
 	
-	public MProfesor obtenerPorIdNombre(int id, String nombre){
-		return new MProfesor(repositorio.findByIdAndNombre(id, nombre));
+	public MProfesor obtenerPorId(int id){
+		return new MProfesor(repositorio.findById(id));
+	}
+	
+	public MProfesor obtenerPorNombreApellido(String nombre, String apellido){
+		return new MProfesor(repositorio.findByNombreAndApellido(nombre, apellido));
 	}
 
 }
