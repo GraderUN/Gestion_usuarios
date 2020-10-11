@@ -1,0 +1,634 @@
+swagger: '2.0'
+info:
+  description: Api Documentation
+  version: '1.0'
+  title: Api Documentation
+  termsOfService: 'urn:tos'
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0'
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: administrativo-controller
+    description: Administrativo Controller
+  - name: estudiante-controller
+    description: Estudiante Controller
+  - name: profesor-controller
+    description: Profesor Controller
+paths:
+  /v1/administrativo:
+    get:
+      tags:
+        - administrativo-controller
+      summary: obtenerAdministrativo
+      operationId: obtenerAdministrativoUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: administrativo
+          description: administrativo
+          required: true
+          schema:
+            $ref: '#/definitions/Administrativo'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MAdministrativo'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - administrativo-controller
+      summary: actualizarAdministrativo
+      operationId: actualizarAdministrativoUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: administrativo
+          description: administrativo
+          required: true
+          schema:
+            $ref: '#/definitions/Administrativo'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+        - administrativo-controller
+      summary: agregarAdministrativo
+      operationId: agregarAdministrativoUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: administrativo
+          description: administrativo
+          required: true
+          schema:
+            $ref: '#/definitions/Administrativo'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - administrativo-controller
+      summary: borrarAdministrativo
+      operationId: borrarAdministrativoUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: administrativo
+          description: administrativo
+          required: true
+          schema:
+            $ref: '#/definitions/Administrativo'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  /v1/administrativoN:
+    get:
+      tags:
+        - administrativo-controller
+      summary: obtenerAdministrativoN
+      operationId: obtenerAdministrativoNUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: administrativo
+          description: administrativo
+          required: true
+          schema:
+            $ref: '#/definitions/Administrativo'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MAdministrativo'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /v1/administrativos:
+    get:
+      tags:
+        - administrativo-controller
+      summary: obtenerAdministrativos
+      operationId: obtenerAdministrativosUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MAdministrativo'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /v1/estudiante:
+    get:
+      tags:
+        - estudiante-controller
+      summary: obtenerEstudiante
+      operationId: obtenerEstudianteUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: estudiante
+          description: estudiante
+          required: true
+          schema:
+            $ref: '#/definitions/Estudiante'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MEstudiante'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - estudiante-controller
+      summary: actualizarEstudiante
+      operationId: actualizarEstudianteUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: estudiante
+          description: estudiante
+          required: true
+          schema:
+            $ref: '#/definitions/Estudiante'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+        - estudiante-controller
+      summary: agregarEstudiante
+      operationId: agregarEstudianteUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: estudiante
+          description: estudiante
+          required: true
+          schema:
+            $ref: '#/definitions/Estudiante'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - estudiante-controller
+      summary: borrarEstudiante
+      operationId: borrarEstudianteUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: estudiante
+          description: estudiante
+          required: true
+          schema:
+            $ref: '#/definitions/Estudiante'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  /v1/estudianteN:
+    get:
+      tags:
+        - estudiante-controller
+      summary: obtenerEstudianteN
+      operationId: obtenerEstudianteNUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: estudiante
+          description: estudiante
+          required: true
+          schema:
+            $ref: '#/definitions/Estudiante'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MEstudiante'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /v1/estudiantes:
+    get:
+      tags:
+        - estudiante-controller
+      summary: obtenerEstudiantes
+      operationId: obtenerEstudiantesUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MEstudiante'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /v1/profesor:
+    get:
+      tags:
+        - profesor-controller
+      summary: obtenerProfesor
+      operationId: obtenerProfesorUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: profesor
+          description: profesor
+          required: true
+          schema:
+            $ref: '#/definitions/Profesor'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MProfesor'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - profesor-controller
+      summary: actualizarProfesor
+      operationId: actualizarProfesorUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: profesor
+          description: profesor
+          required: true
+          schema:
+            $ref: '#/definitions/Profesor'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+        - profesor-controller
+      summary: agregarProfesor
+      operationId: agregarProfesorUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: profesor
+          description: profesor
+          required: true
+          schema:
+            $ref: '#/definitions/Profesor'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - profesor-controller
+      summary: borrarProfesor
+      operationId: borrarProfesorUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: profesor
+          description: profesor
+          required: true
+          schema:
+            $ref: '#/definitions/Profesor'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  /v1/profesorN:
+    get:
+      tags:
+        - profesor-controller
+      summary: obtenerProfesorN
+      operationId: obtenerProfesorNUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: profesor
+          description: profesor
+          required: true
+          schema:
+            $ref: '#/definitions/Profesor'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MProfesor'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /v1/profesores:
+    get:
+      tags:
+        - profesor-controller
+      summary: obtenerProfesores
+      operationId: obtenerProfesoresUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MProfesor'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+definitions:
+  Administrativo:
+    type: object
+    properties:
+      apellido:
+        type: string
+      edad:
+        type: integer
+        format: int32
+      email:
+        type: string
+      id:
+        type: integer
+        format: int32
+      nombre:
+        type: string
+      telefono:
+        type: integer
+        format: int64
+    title: Administrativo
+  Estudiante:
+    type: object
+    properties:
+      apellido:
+        type: string
+      apellidoTutor:
+        type: string
+      edad:
+        type: integer
+        format: int32
+      emailTutor:
+        type: string
+      id:
+        type: integer
+        format: int32
+      nombre:
+        type: string
+      nombreTutor:
+        type: string
+      sexo:
+        type: string
+      telefonoTutor:
+        type: integer
+        format: int64
+    title: Estudiante
+  MAdministrativo:
+    type: object
+    properties:
+      apellido:
+        type: string
+      edad:
+        type: integer
+        format: int32
+      email:
+        type: string
+      id:
+        type: integer
+        format: int32
+      nombre:
+        type: string
+      telefono:
+        type: integer
+        format: int64
+    title: MAdministrativo
+  MEstudiante:
+    type: object
+    properties:
+      apellido:
+        type: string
+      apellidoTutor:
+        type: string
+      edad:
+        type: integer
+        format: int32
+      emailTutor:
+        type: string
+      id:
+        type: integer
+        format: int32
+      nombre:
+        type: string
+      nombreTutor:
+        type: string
+      sexo:
+        type: string
+      telefonoTutor:
+        type: integer
+        format: int64
+    title: MEstudiante
+  MProfesor:
+    type: object
+    properties:
+      apellido:
+        type: string
+      edad:
+        type: integer
+        format: int32
+      email:
+        type: string
+      id:
+        type: integer
+        format: int32
+      nombre:
+        type: string
+      telefono:
+        type: integer
+        format: int64
+    title: MProfesor
+  Profesor:
+    type: object
+    properties:
+      apellido:
+        type: string
+      edad:
+        type: integer
+        format: int32
+      email:
+        type: string
+      id:
+        type: integer
+        format: int32
+      nombre:
+        type: string
+      telefono:
+        type: integer
+        format: int64
+    title: Profesor
+
