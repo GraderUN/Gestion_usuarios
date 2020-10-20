@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,14 +30,14 @@ public class EstudianteController {
 		return service.crear(estudiante);
 	}
 	
-	@PostMapping("/estudiante")
-	public boolean actualizarEstudiante(@RequestBody Estudiante estudiante) {
-		return service.actualizar(estudiante);
+	@PostMapping("/estudiante/{id}")
+	public boolean actualizarEstudiante(@PathVariable int id, @RequestBody Estudiante estudiante) {
+		return service.actualizar(id, estudiante);
 	}
 	
-	@DeleteMapping("/estudiante")
-	public boolean borrarEstudiante(@RequestBody Estudiante estudiante) {
-		return service.borrar(estudiante.getId());
+	@DeleteMapping("/estudiante/{id}")
+	public boolean borrarEstudiante(@PathVariable int id) {
+		return service.borrar(id);
 	}
 	
 	@GetMapping("/estudiantes")
@@ -44,9 +45,9 @@ public class EstudianteController {
 		return service.obtener();
 	}
 
-	@GetMapping("/estudiante")
-	public MEstudiante obtenerEstudiante(@RequestBody Estudiante estudiante){
-		return service.obtenerPorId(estudiante.getId());
+	@GetMapping("/estudiante/{id}")
+	public MEstudiante obtenerEstudiante(@PathVariable int id){
+		return service.obtenerPorId(id);
 	}
 	
 	@GetMapping("/estudianteN")

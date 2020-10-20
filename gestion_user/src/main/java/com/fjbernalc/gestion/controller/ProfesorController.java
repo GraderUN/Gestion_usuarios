@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,14 +30,14 @@ public class ProfesorController {
 		return service.crear(profesor);
 	}
 	
-	@PostMapping("/profesor")
-	public boolean actualizarProfesor(@RequestBody Profesor profesor) {
-		return service.actualizar(profesor);
+	@PostMapping("/profesor/{id}")
+	public boolean actualizarProfesor(@PathVariable int id, @RequestBody Profesor profesor) {
+		return service.actualizar(id, profesor);
 	}
 	
-	@DeleteMapping("/profesor")
-	public boolean borrarProfesor(@RequestBody Profesor profesor) {
-		return service.borrar(profesor);
+	@DeleteMapping("/profesor/{id}")
+	public boolean borrarProfesor(@PathVariable int id) {
+		return service.borrar(id);
 	}
 	
 	@GetMapping("/profesores")
@@ -44,9 +45,9 @@ public class ProfesorController {
 		return service.obtener();
 	}
 
-	@GetMapping("/profesor")
-	public MProfesor obtenerProfesor(@RequestBody Profesor profesor){
-		return service.obtenerPorId(profesor.getId());
+	@GetMapping("/profesor/{id}")
+	public MProfesor obtenerProfesor(@PathVariable int id){
+		return service.obtenerPorId(id);
 	}
 	
 	@GetMapping("/profesorN")

@@ -48,11 +48,11 @@ public class EstudianteService {
 		
 	}
 	
-	public boolean actualizar(Estudiante estudiante) {
+	public boolean actualizar(int id, Estudiante estudiante) {
 		
 		try {
 			
-			Estudiante estudiante1 = repositorio.findById(estudiante.getId());
+			Estudiante estudiante1 = repositorio.findById(id);
 			mapEstudiante(estudiante, estudiante1);
 			repositorio.save(estudiante1);
 			return true;

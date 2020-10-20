@@ -45,7 +45,7 @@ public class ProfesorService {
 		
 	}
 	
-	public boolean actualizar(Profesor profesor) {
+	public boolean actualizar(int id, Profesor profesor) {
 		
 		try {
 			
@@ -60,11 +60,11 @@ public class ProfesorService {
 		
 	}
 	
-	public boolean borrar(Profesor profesor) {
+	public boolean borrar(int id) {
 		
 		try {
 			
-			Profesor profesor1 = repositorio.findById(profesor.getId());
+			Profesor profesor1 = repositorio.findById(id);
 			repositorio.delete(profesor1);
 			return true;
 			

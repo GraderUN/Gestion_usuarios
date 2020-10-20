@@ -44,11 +44,11 @@ public class AdministrativoService {
 		
 	}
 	
-	public boolean actualizar(Administrativo administrativo) {
+	public boolean actualizar(int id, Administrativo administrativo) {
 		
 		try {
 			
-			Administrativo administrativo1 = repositorio.findById(administrativo.getId());
+			Administrativo administrativo1 = repositorio.findById(id);
 			mapAdministrativo(administrativo, administrativo1);
 			repositorio.save(administrativo1);
 			return true;

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,14 +32,14 @@ public class AdministrativoController {
 		return service.crear(administrativo);
 	}
 	
-	@PostMapping("/administrativo")
-	public boolean actualizarAdministrativo(@RequestBody Administrativo administrativo) {
-		return service.actualizar(administrativo);
+	@PostMapping("/administrativo/{id}")
+	public boolean actualizarAdministrativo(@PathVariable int id, @RequestBody Administrativo administrativo) {
+		return service.actualizar(id, administrativo);
 	}
 	
-	@DeleteMapping("/administrativo")
-	public boolean borrarAdministrativo(@RequestBody Administrativo administrativo) {
-		return service.borrar(administrativo.getId());
+	@DeleteMapping("/administrativo/{id}")
+	public boolean borrarAdministrativo(@PathVariable int id) {
+		return service.borrar(id);
 	}
 	
 	@GetMapping("/administrativos")
@@ -46,9 +47,9 @@ public class AdministrativoController {
 		return service.obtener();
 	}
 	
-	@GetMapping("/administrativo")
-	public MAdministrativo obtenerAdministrativo(@RequestBody Administrativo administrativo){
-		return service.obtenerPorId(administrativo.getId());
+	@GetMapping("/administrativo/{id}")
+	public MAdministrativo obtenerAdministrativo(@PathVariable int id){
+		return service.obtenerPorId(id);
 	}
 	
 	@GetMapping("/administrativoN")
