@@ -34,7 +34,7 @@ public class Estudiante implements Serializable{
 	private String apellidoTutor;
 	@Column(name="telefonoTutor")
 	private long telefonoTutor;
-	@Column(name="emailTuto")
+	@Column(name="emailTutor")
 	private String emailTutor;
 	
 	public Estudiante() {
