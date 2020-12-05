@@ -21,8 +21,6 @@ import com.fjbernalc.gestion.service.AdministrativoService;
 @RequestMapping("/v1")
 public class AdministrativoController {
 	
-	
-	
 	@Autowired
 	@Qualifier("administrativo_servicio")
 	AdministrativoService service;
