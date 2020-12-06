@@ -49,9 +49,9 @@ public class ProfesorService {
 		
 		try {
 			
-			Profesor profesor1 = repositorio.findById(profesor.getId());
+			Profesor profesor1 = repositorio.findById(id);
 			mapProfesor(profesor, profesor1);
-			repositorio.save(profesor);
+			repositorio.save(profesor1);
 			return true;
 			
 		}catch(Exception e) {
